@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Mario",
+    "image": "./images/Mario.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Mr. Krabs",
+    "image": "./images/master-chief.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Squidward",
+    "image": "./images/donkey-kong.png"
+  },
+  {
+    "id": 4,
+    "name": "Dexter",
+    "image": "./images/link.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Courage",
+    "image": "./images/pac-man.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Doug Funnie",
+    "image": "./images/lara-croft.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Bugs Bunny",
+    "image": "./images/god-of-war.png"
+  },
+  {
+    "id": 8,
+    "name": "Johnny Bravo",
+    "image": "./images/sonic.jpg"
+  }
+]
