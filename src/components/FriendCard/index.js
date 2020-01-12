@@ -3,10 +3,8 @@ import "./style.css";
 
 function FriendCard(props) {
   return (
-    <div className="card" onClick={props.handleIncrement}>
-      <div className="img-container">
-        <img alt={props.name} src={props.image} />
-      </div>
+    <div className="img-container">
+      <img className="emoji" alt={props.name} src={props.image} />
     </div>
   );
 }
