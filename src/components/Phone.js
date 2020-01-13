@@ -1,11 +1,11 @@
 import React from "react";
 import CardBody from "./CardBody";
-// import Iframe from "react-iframe";
-import "./Counter.css";
+import "./Phone.css";
 
-// By extending the React.Component class, Counter inherits functionality from it
-class Counter extends React.Component {
-  // Setting the initial state of the Counter component
+// By extending the React.Component class, Phoneinherits functionality from it
+class Phone extends React.Component {
+  // Setting the initial state of the Phone
+  component;
   state = {
     count: 0
   };
@@ -25,13 +25,9 @@ class Counter extends React.Component {
           count={this.state.count}
           handleIncrement={this.handleIncrement}
         />
-        {/* <Iframe
-          url="/w3css/tryw3css_templates_band.htm"
-          style="width:100%; border:none; height:100%;"
-        /> */}
       </div>
     );
   }
 }
 
-export default Counter;
+export default Phone;
