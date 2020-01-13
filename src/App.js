@@ -32,7 +32,8 @@ class App extends Component {
       <Wrapper>
         <Title>Emoji Game</Title>
         <subTitle>
-          Use as many emojis as you can without using the same emoji twice!
+          You have 30 seconds to reply! Use as many emojis as you can without
+          using the same emoji twice!
         </subTitle>
         <Phone />
         {/* <div className="card-body">
@@ -47,7 +48,7 @@ class App extends Component {
               name={emoji.name}
               image={emoji.image}
               handleIncrement={this.handleIncrement}
-              onClick={(this.handleIncrement, this.removeEmoji)}
+              onClick={this.handleIncrement}
             />
           ))}
         </div>
