@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/clicky-game/static/css/main.82fe6773.chunk.css",
-    "main.js": "/clicky-game/static/js/main.5ad2772b.chunk.js",
-    "main.js.map": "/clicky-game/static/js/main.5ad2772b.chunk.js.map",
+    "main.css": "/clicky-game/static/css/main.a68c37fa.chunk.css",
+    "main.js": "/clicky-game/static/js/main.c16a72fc.chunk.js",
+    "main.js.map": "/clicky-game/static/js/main.c16a72fc.chunk.js.map",
     "runtime-main.js": "/clicky-game/static/js/runtime-main.afb41716.js",
     "runtime-main.js.map": "/clicky-game/static/js/runtime-main.afb41716.js.map",
     "static/js/2.2ca7913f.chunk.js": "/clicky-game/static/js/2.2ca7913f.chunk.js",
     "static/js/2.2ca7913f.chunk.js.map": "/clicky-game/static/js/2.2ca7913f.chunk.js.map",
     "index.html": "/clicky-game/index.html",
-    "precache-manifest.5eab314ebe78a1a1b76bdf867deb878b.js": "/clicky-game/precache-manifest.5eab314ebe78a1a1b76bdf867deb878b.js",
+    "precache-manifest.2cb0fe0b41c569830b161802af2ad653.js": "/clicky-game/precache-manifest.2cb0fe0b41c569830b161802af2ad653.js",
     "service-worker.js": "/clicky-game/service-worker.js",
-    "static/css/main.82fe6773.chunk.css.map": "/clicky-game/static/css/main.82fe6773.chunk.css.map",
-    "static/js/2.2ca7913f.chunk.js.LICENSE": "/clicky-game/static/js/2.2ca7913f.chunk.js.LICENSE",
-    "static/media/style.css": "/clicky-game/static/media/ITC-Avant-Garde-Gothic-LT-Book-Regular.c7fe96fe.otf"
+    "static/css/main.a68c37fa.chunk.css.map": "/clicky-game/static/css/main.a68c37fa.chunk.css.map",
+    "static/js/2.2ca7913f.chunk.js.LICENSE": "/clicky-game/static/js/2.2ca7913f.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.afb41716.js",
     "static/js/2.2ca7913f.chunk.js",
-    "static/css/main.82fe6773.chunk.css",
-    "static/js/main.5ad2772b.chunk.js"
+    "static/css/main.a68c37fa.chunk.css",
+    "static/js/main.c16a72fc.chunk.js"
   ]
 }
