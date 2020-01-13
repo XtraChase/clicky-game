@@ -4,6 +4,7 @@ import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import Counter from "./components/Counter";
 import emoji from "./emoji.json";
+import "./App.css";
 
 class App extends Component {
   // Setting this.state.emoji to the emoji json array
@@ -34,17 +35,19 @@ class App extends Component {
         {/* <div className="card-body">
           <p className="card-text">Count: {this.count}</p>
         </div> */}
-        {this.state.emoji.map(emoji => (
-          <Emojis
-            removeemoji={this.removeEmoji}
-            id={emoji.id}
-            key={emoji.id}
-            name={emoji.name}
-            image={emoji.image}
-            handleIncrement={this.handleIncrement}
-            onClick={this.handleIncrement}
-          />
-        ))}
+        <div className="emoji-container">
+          {this.state.emoji.map(emoji => (
+            <Emojis
+              removeemoji={this.removeEmoji}
+              id={emoji.id}
+              key={emoji.id}
+              name={emoji.name}
+              image={emoji.image}
+              handleIncrement={this.handleIncrement}
+              onClick={this.handleIncrement}
+            />
+          ))}
+        </div>
       </Wrapper>
     );
   }

@@ -1,5 +1,7 @@
 import React from "react";
 import CardBody from "./CardBody";
+// import Iframe from "react-iframe";
+import "./Counter.css";
 
 // By extending the React.Component class, Counter inherits functionality from it
 class Counter extends React.Component {
@@ -17,11 +19,16 @@ class Counter extends React.Component {
   // The render method returns the JSX that should be rendered
   render() {
     return (
-      <div className="card text-center">
+      <div className="card text-center smartphone">
         <CardBody
+          className="content"
           count={this.state.count}
           handleIncrement={this.handleIncrement}
         />
+        {/* <Iframe
+          url="/w3css/tryw3css_templates_band.htm"
+          style="width:100%; border:none; height:100%;"
+        /> */}
       </div>
     );
   }
