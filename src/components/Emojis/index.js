@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function FriendCard(props) {
+function Emojis(props) {
   return (
     <div className="img-container">
       <img className="emoji" alt={props.name} src={props.image} />
@@ -9,4 +9,4 @@ function FriendCard(props) {
   );
 }
 
-export default FriendCard;
+export default Emojis;

@@ -20,13 +20,7 @@ class Phone extends React.Component {
   // Setting the initial state of the Phone
   component;
   state = {
-    count: 0
-  };
-
-  // handleIncrement increases this.state.count by 1
-  handleIncrement = () => {
-    // We always use the setState method to update a component's state
-    this.setState({ count: this.state.count + 1 });
+    count: 99
   };
 
   // The render method returns the JSX that should be rendered
@@ -34,11 +28,7 @@ class Phone extends React.Component {
     return (
       <div className="card text-center smartphone">
         <div className="content">
-          <Count
-            className="count"
-            count={this.state.count}
-            handleIncrement={this.handleIncrement}
-          />
+          <Count className="count" count={this.state.count} />
           <Countdown
             className="countdown"
             date={Date.now() + 30000}
