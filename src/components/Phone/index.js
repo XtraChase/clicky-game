@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Countdown from "react-countdown-now";
 import "./style.css";
 
@@ -6,6 +6,8 @@ const Completionist = () => <span>Times Up!</span>;
 
 const renderer = ({ seconds, completed }) => {
   if (completed) {
+    alert("Times Up!");
+    window.location.reload();
     // Render a completed state
     return <Completionist />;
   } else {
@@ -15,23 +17,19 @@ const renderer = ({ seconds, completed }) => {
 };
 
 // By extending the React.Component class, Phoneinherits functionality from it
-class Phone extends React.Component {
-  // Setting the initial state of the Phone
-  component;
-  state = {
-    count: 0,
-    clicked: false
-  };
-
+class Phone extends Component {
   // The render method returns the JSX that should be rendered
   render() {
     return (
       <div className="card text-center smartphone">
         <div className="content">
-          <div className="high-score">High Score: {this.state.count}</div>
+          <div className="high-score">High Score: {this.props.highScore}</div>
           <div className="countdown">
             <Countdown date={Date.now() + 30000} renderer={renderer} />
           </div>
+          <br />
+          <div className="speech-bubble">Hi! How's it going?</div>
+          {/* <div className="reply-speech-bubble">...</div> */}
         </div>
       </div>
     );

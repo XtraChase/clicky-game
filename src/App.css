@@ -1,12 +1,3 @@
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body {
-  background-color: whitesmoke;
-}
-
 .game-container {
   width: 100%;
 }
@@ -29,5 +20,10 @@ body {
   .phone-container {
     width: 100%;
   }
+}
+
+.emoji-btn {
+  border-style: none;
+  background-color: transparent;
 }
 /*# sourceMappingURL=App.css.map */

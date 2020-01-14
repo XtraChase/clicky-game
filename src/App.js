@@ -12,40 +12,60 @@ class App extends Component {
   state = {
     emoji,
     count: 0,
+    highScore: 0,
     clicked: false
   };
 
-  addToUsedEmojis = id => {
-    // Filter this.state.emoji for emoji with an id not equal to the id being removed
-    const emoji = this.state.emoji.filter(emoji => emoji.id !== id);
-    // Set this.state.emoji equal to the new emoji array
-    this.setState({ emoji });
-  };
+  // handleIncrement increases this.state.count by 1
+  handleIncrement() {
+    this.setState(state => {
+      console.log(state.count);
+      return { count: state.count + 1 };
+    });
+  }
 
+  //shuffle the emojis to show a new randomized array
   shuffleEmojis = emoji => {
-    let i = emoji.length - 1;
+    var emojiArray = this.state.emoji;
+    let i = emojiArray.length - 1;
     for (; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      const temp = emoji[i];
-      emoji[i] = emoji[j];
-      emoji[j] = temp;
+      const temp = emojiArray[i];
+      emojiArray[i] = emojiArray[j];
+      emojiArray[j] = temp;
     }
     return emoji;
   };
 
-  constructor(props) {
-    super(props);
-    this.handleIncrement = this.handleIncrement.bind(this);
+  //reset count
+  //if count is higher than highScore then high score equalls count
+  resetCount() {
+    if (this.state.count > this.state.highScore) {
+      this.setState(state => {
+        return { highScore: this.state.count, count: 0 };
+      });
+    } else {
+      this.setState(state => {
+        return { count: 0 };
+      });
+    }
   }
 
-  // handleIncrement increases this.state.count by 1
-  handleIncrement() {
-    console.log("hello");
-    // We always use the setState method to update a component's state
-    this.setState(state => ({ count: this.state.count + 1 }));
-  }
+  //Emoji onClick event
+  clicked = () => {
+    console.log(this.state);
+    if (!this.state.clicked) {
+      // this.setState({[event.target.id]: event.target.clicked: true });
+      this.handleIncrement();
+      this.shuffleEmojis();
+    } else {
+      alert("You already used that emoji!");
+      window.location.reload();
+      // this.resetCount();
+      // this.shuffleEmojis();
+    }
+  };
 
-  // Map over this.state.emoji and render a Emojis component for each emoji object
   render() {
     // const shuffledEmojis = shuffleEmojis(this.state.emoji);
 
@@ -62,14 +82,15 @@ class App extends Component {
         </div>
         <div className="emoji-container">
           {this.state.emoji.map(emoji => (
-            <Emojis
-              id={emoji.id}
-              key={emoji.id}
-              name={emoji.name}
-              image={emoji.image}
-              // handleIncrement={this.handleIncrement}
-              onClick={this.handleIncrement}
-            />
+            <button className="emoji-btn" onClick={this.clicked}>
+              <Emojis
+                id={emoji.id}
+                key={emoji.id}
+                name={emoji.name}
+                image={emoji.image}
+                value={this.state.clicked}
+              />
+            </button>
           ))}
         </div>
       </Wrapper>
