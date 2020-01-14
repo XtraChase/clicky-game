@@ -1,7 +1,6 @@
 import React from "react";
-import Count from "./Count";
-import "./Phone.css";
 import Countdown from "react-countdown-now";
+import "./style.css";
 
 const Completionist = () => <span>Times Up!</span>;
 
@@ -20,7 +19,8 @@ class Phone extends React.Component {
   // Setting the initial state of the Phone
   component;
   state = {
-    count: 99
+    count: 0,
+    clicked: false
   };
 
   // The render method returns the JSX that should be rendered
@@ -28,12 +28,10 @@ class Phone extends React.Component {
     return (
       <div className="card text-center smartphone">
         <div className="content">
-          <Count className="count" count={this.state.count} />
-          <Countdown
-            className="countdown"
-            date={Date.now() + 30000}
-            renderer={renderer}
-          />
+          <div className="high-score">High Score: {this.state.count}</div>
+          <div className="countdown">
+            <Countdown date={Date.now() + 30000} renderer={renderer} />
+          </div>
         </div>
       </div>
     );

@@ -3,7 +3,7 @@ import Emojis from "./components/Emojis";
 import emoji from "./emoji.json";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
-import subTitle from "./components/subTitle";
+import SubTitle from "./components/SubTitle";
 import Phone from "./components/Phone";
 import "./App.css";
 
@@ -11,7 +11,8 @@ class App extends Component {
   // Setting this.state.emoji to the emoji json array
   state = {
     emoji,
-    count: 0
+    count: 0,
+    clicked: false
   };
 
   addToUsedEmojis = id => {
@@ -41,7 +42,7 @@ class App extends Component {
   handleIncrement() {
     console.log("hello");
     // We always use the setState method to update a component's state
-    // this.setState(state => ({ count: this.state.count + 1 }));
+    this.setState(state => ({ count: this.state.count + 1 }));
   }
 
   // Map over this.state.emoji and render a Emojis component for each emoji object
@@ -51,14 +52,14 @@ class App extends Component {
     return (
       <Wrapper>
         <Title>Emoji Game</Title>
-        <subTitle>
+        <SubTitle>
           You have 30 seconds to reply! Use as many emojis as you can without
           using the same emoji twice!
-        </subTitle>
-        <Phone />
-        {/* <div className="card-body">
-          <p className="card-text">Count: {this.count}</p>
-        </div> */}
+        </SubTitle>
+
+        <div className="phone-container">
+          <Phone />
+        </div>
         <div className="emoji-container">
           {this.state.emoji.map(emoji => (
             <Emojis

@@ -40,15 +40,21 @@
 
 /* The screen (or content) of the device */
 .smartphone .content {
-  width: 200px;
+  /* margin-left: -20px; */
+  width: 230px;
   height: 500px;
   background: white;
+  text-align: left;
 }
 
-.count {
+.high-score {
   float: left;
+  margin-left: 2px;
+  font-weight: bold;
 }
 
 .countdown {
   float: right;
+  margin-right: 2px;
+  font-weight: bold;
 }

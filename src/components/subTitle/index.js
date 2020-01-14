@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.css";
 
-function subTitle(props) {
-  return <h2 className="subTitle">{props.children}</h2>;
+function SubTitle(props) {
+  return <h2 className="sub-title">{props.children}</h2>;
 }
 
-export default subTitle;
+export default SubTitle;

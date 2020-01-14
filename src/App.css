@@ -1,5 +1,33 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+.game-container {
+  width: 100%;
+}
+
+.phone-container {
+  text-align: center;
+  float: left;
+  width: 50%;
+  margin-top: 10px;
+}
+
 .emoji-container {
-  width: 90vh;
-  margin-left: 5vh;
+  width: 50%;
+  float: right;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 950px) {
+  .emoji-container,
+  .phone-container {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=App.css.map */
