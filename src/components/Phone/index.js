@@ -6,8 +6,8 @@ const Completionist = () => <span>Times Up!</span>;
 
 const renderer = ({ seconds, completed }) => {
   if (completed) {
-    alert("Times Up!");
-    window.location.reload();
+    console.log("Times Up!");
+    // window.location.reload();
     // Render a completed state
     return <Completionist />;
   } else {
@@ -18,12 +18,17 @@ const renderer = ({ seconds, completed }) => {
 
 // By extending the React.Component class, Phoneinherits functionality from it
 class Phone extends Component {
+  // constructor(props) {
+  //   super(props);
+
   // The render method returns the JSX that should be rendered
-  render() {
+  render(props) {
+    // console.log("props " + props);
+
     return (
       <div className="card text-center smartphone">
         <div className="content">
-          <div className="high-score">High Score: {this.props.highScore}</div>
+          <div className="high-score">High Score: {this.props.score}</div>
           <div className="countdown">
             <Countdown date={Date.now() + 30000} renderer={renderer} />
           </div>
