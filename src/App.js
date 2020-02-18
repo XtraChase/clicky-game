@@ -68,7 +68,6 @@ class App extends Component {
           You have 30 seconds to reply! Use as many emojis as you can without
           using the same emoji twice!
         </h2>
-        ;
         <div className="phone-container">
           <Phone
             highScore={this.state.highScore}
