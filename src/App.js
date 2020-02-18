@@ -1,86 +1,97 @@
 import React, { Component } from "react";
-import Emojis from "./components/Emojis";
-import emoji from "./emoji.json";
-import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
-import SubTitle from "./components/SubTitle";
+import Emoji from "./components/Emoji";
+import emojis from "./emoji.json";
 import Phone from "./components/Phone";
 import "./App.css";
 
 class App extends Component {
-  // Setting this.state.emoji to the emoji json array
   state = {
-    emoji,
+    emojis,
     count: 0,
-<<<<<<< HEAD
     highScore: 0
   };
-=======
-    clicked: false
-  };
 
-  addToUsedEmojis = id => {
-    // Filter this.state.emoji for emoji with an id not equal to the id being removed
-    const emoji = this.state.emoji.filter(emoji => emoji.id !== id);
-    // Set this.state.emoji equal to the new emoji array
-    this.setState({ emoji });
-  };
+  //Emoji onClick event
+  handleClick = id => {
+    let doubleClicked = false;
 
-  shuffleEmojis = emoji => {
-    let i = emoji.length - 1;
-    for (; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = emoji[i];
-      emoji[i] = emoji[j];
-      emoji[j] = temp;
+    // a state snapshot to minimize state updates
+    let update = {
+      emojis: [...this.state.emojis],
+      count: this.state.count,
+      highScore: this.state.highScore
+    };
+
+    update.emojis.forEach(emoji => {
+      if (emoji.id === id) {
+        if (emoji.clicked) {
+          doubleClicked = true;
+          alert("You already used that emoji!");
+        } else {
+          console.log("Clicked on emoji");
+        }
+        emoji.clicked = true;
+        update.count++;
+        if (update.count > update.highScore) {
+          update.highScore = update.count;
+        }
+      }
+    });
+
+    // reset score and clicked state in all cards if a card was clicked twice
+    if (doubleClicked) {
+      update.emojis.forEach(emoji => (emoji.clicked = false));
+      update.count = 0;
     }
-    return emoji;
+
+    // reset clicked in cards if all cards where clicked once
+    if (update.count && !(update.count % update.emojis.length)) {
+      update.emojis.forEach(emoji => (emoji.clicked = false));
+    }
+
+    // randomize emojis
+    update.emojis = update.emojis.sort(() => 0.5 - Math.random());
+
+    // update state
+    this.setState({
+      emojis: update.emojis,
+      count: update.count,
+      highScore: update.highScore
+    });
   };
 
-  constructor(props) {
-    super(props);
-    this.handleIncrement = this.handleIncrement.bind(this);
-  }
-
-  // handleIncrement increases this.state.count by 1
-  handleIncrement() {
-    console.log("hello");
-    // We always use the setState method to update a component's state
-    this.setState(state => ({ count: this.state.count + 1 }));
-  }
->>>>>>> parent of d1815dd... emojis now shuffle
-
-  // Map over this.state.emoji and render a Emojis component for each emoji object
   render() {
     return (
-      <Wrapper>
-        <Title>Emoji Game</Title>
-        <SubTitle>
+      <>
+        <h1 className="title">Emoji Game</h1>
+        <h2 className="sub-title">
           You have 30 seconds to reply! Use as many emojis as you can without
           using the same emoji twice!
-        </SubTitle>
-
+        </h2>
+        ;
         <div className="phone-container">
-<<<<<<< HEAD
-          <Phone score={this.state.highScore} />
-=======
-          <Phone />
+          <Phone
+            highScore={this.state.highScore}
+            // won={
+            //   this.state.count &&
+            //   !(this.state.count % this.state.emojis.length)
+            // }
+          />
         </div>
         <div className="emoji-container">
-          {this.state.emoji.map(emoji => (
-            <Emojis
-              id={emoji.id}
-              key={emoji.id}
-              name={emoji.name}
-              image={emoji.image}
-              // handleIncrement={this.handleIncrement}
-              onClick={this.handleIncrement}
-            />
+          {this.state.emojis.map(emoji => (
+            <div className="emoji-btn">
+              <Emoji
+                id={emoji.id}
+                key={emoji.id}
+                name={emoji.name}
+                image={emoji.image}
+                handleImgClick={() => this.handleClick(emoji.id)}
+              />
+            </div>
           ))}
->>>>>>> parent of d1815dd... emojis now shuffle
         </div>
-        <Emojis />
-      </Wrapper>
+      </>
     );
   }
 }
