@@ -58,3 +58,50 @@
   margin-right: 2px;
   font-weight: bold;
 }
+
+.speech-bubble {
+  position: relative;
+  width: max-content;
+  background: #e5e5ea;
+  border-radius: 0.4em;
+  margin: 10px 10px 0 10px;
+  padding: 2px 5px;
+}
+
+.speech-bubble:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #e5e5ea;
+  border-left: 0;
+  border-bottom: 0;
+  margin-top: -4px;
+  margin-left: -10px;
+}
+
+.reply-speech-bubble {
+  position: relative;
+  background: #0881fc;
+  border-radius: 0.4em;
+  margin: 10px 10px 0 10px;
+  padding: 2px 5px;
+}
+
+.reply-speech-bubble:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: #0881fc;
+  border-right: 0;
+  border-bottom: 0;
+  margin-top: -4px;
+  margin-right: -10px;
+}

@@ -2,22 +2,26 @@ import React, { Component } from "react";
 import Countdown from "react-countdown-now";
 import "./style.css";
 class Phone extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const Completionist = () => <span>Times Up!</span>;
+    const time = ({ seconds, completed }) =>
+      completed ? <span>Times Up!</span> : <span>0:{seconds}</span>;
 
-    const renderer = ({ seconds, completed }) => {
-      if (completed) {
-        console.log(completed);
-        // Render a completed state
-        return <Completionist />;
+    const Emojis = () => {
+      if (this.props.emojis.length) {
+        return (
+          <div className="reply-speech-bubble">
+            {this.props.emojis.map(emoji => (
+              <img
+                src={emoji.image}
+                alt={emoji.name}
+                id={emoji.id}
+                width="30px"
+              />
+            ))}
+          </div>
+        );
       } else {
-        console.log(completed);
-        // Render a countdown
-        return <span>0:{seconds}</span>;
+        return <div></div>;
       }
     };
 
@@ -26,11 +30,11 @@ class Phone extends Component {
         <div className="content">
           <div className="high-score">High Score: {this.props.highScore}</div>
           <div className="countdown">
-            <Countdown date={Date.now() + 30000} renderer={renderer} />
+            <Countdown date={Date.now() + 30000} renderer={time} />
           </div>
           <br />
           <div className="speech-bubble">Hi! How's it going?</div>
-          {/* <div className="reply-speech-bubble">...</div> */}
+          <Emojis />
         </div>
       </div>
     );

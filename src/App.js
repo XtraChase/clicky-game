@@ -8,7 +8,8 @@ class App extends Component {
   state = {
     emojis,
     count: 0,
-    highScore: 0
+    highScore: 0,
+    phoneEmojis: []
   };
 
   //Emoji onClick event
@@ -27,8 +28,7 @@ class App extends Component {
         if (emoji.clicked) {
           doubleClicked = true;
           alert("You already used that emoji!");
-        } else {
-          console.log("Clicked on emoji");
+          this.state.phoneEmojis = [];
         }
         emoji.clicked = true;
         update.count++;
@@ -36,6 +36,13 @@ class App extends Component {
           update.highScore = update.count;
         }
       }
+      this.setState({
+        phoneEmojis: this.state.phoneEmojis.concat({
+          image: emoji.image,
+          name: emoji.name,
+          id: emoji.id
+        })
+      });
     });
 
     // reset score and clicked state in all cards if a card was clicked twice
@@ -71,6 +78,7 @@ class App extends Component {
         <div className="phone-container">
           <Phone
             highScore={this.state.highScore}
+            emojis={this.state.phoneEmojis}
             // won={
             //   this.state.count &&
             //   !(this.state.count % this.state.emojis.length)
@@ -79,7 +87,7 @@ class App extends Component {
         </div>
         <div className="emoji-container">
           {this.state.emojis.map(emoji => (
-            <div className="emoji-btn">
+            <div className="emoji-btn" key={emoji.id}>
               <Emoji
                 id={emoji.id}
                 key={emoji.id}
