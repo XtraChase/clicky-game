@@ -28,27 +28,29 @@ class App extends Component {
         if (emoji.clicked) {
           doubleClicked = true;
           alert("You already used that emoji!");
-          this.state.phoneEmojis = [];
         }
         emoji.clicked = true;
         update.count++;
         if (update.count > update.highScore) {
           update.highScore = update.count;
         }
+        this.setState({
+          phoneEmojis: this.state.phoneEmojis.concat({
+            image: emoji.image,
+            name: emoji.name,
+            id: emoji.id
+          })
+        });
       }
-      this.setState({
-        phoneEmojis: this.state.phoneEmojis.concat({
-          image: emoji.image,
-          name: emoji.name,
-          id: emoji.id
-        })
-      });
     });
 
     // reset score and clicked state in all cards if a card was clicked twice
     if (doubleClicked) {
       update.emojis.forEach(emoji => (emoji.clicked = false));
       update.count = 0;
+      this.setState({
+        phoneEmojis: []
+      });
     }
 
     // reset clicked in cards if all cards where clicked once
