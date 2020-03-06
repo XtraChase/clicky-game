@@ -8,5 +8,7 @@
 ### Technologies
 
 - React
+- Javascript
+- CSS
 
 ![preview](./images/preview.png)
